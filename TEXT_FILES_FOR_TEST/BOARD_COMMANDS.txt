@@ -1,0 +1,51 @@
+MAINBOARD
+BOARD1NUMBER1
+BOARD2NUMBER2
+BOARD3NUMBER3
+BOARD4NUMBER4rs232 ports found
+
+COM1 is active
+COM23 is active
+COM128 is active45345345345345345345
+COM129 is active
+4 serial port are active345345345345
+rs232 ports found
+
+COM1 is active345345
+COM23 is active
+COM128 is active
+COM129 is active4534534534
+4 serial port are active
+rs232 ports found
+sdqweq33
+COM1 is active
+COM23 is active
+COM128 is activeasdasdasd
+COM129 is active
+4 serial port are active
+
+sdfsdfsd
+fs
+df
+sdf
+sd
+s
+df
+sdf
+\'s;ld
+f??
+epr w][efk ]w[eokr ]woejr ]oawejf aefasdf
+asd
+as
+das
+da
+sd
+asd
+asdars232 ports found
+
+COM1 is active
+COM23 is active
+COM128 is active
+COM129 is active
+4 serial port are active
+COM1 is CONNECTED

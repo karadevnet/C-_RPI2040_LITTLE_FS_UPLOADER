@@ -1,0 +1,40 @@
+﻿RECEIVE STRINGS FOR VISUAL ELEMENTS IN STRONG TERMINAL
+the receiving strings to the program can be both precisely defined according to the format of the program for displaying the status of the relays, and arbitrary, as random ones will only be displayed directly in the receiving window. to trigger the relay status tags you need to pass from the board to the program a precisely defined string composed according to the corresponding program format.
+
+example : if you return a string with a compound form like this :
+BOARD_NUMBER + RELAY_NUMBER + STATUS,
+will result in a string like this:
+BOARD1NUMBER1RELAY1ON = BOARD1NUMBER1+RELAY1+ON
+or like this one
+BOARD2NUMBER2RELAY5OFF = BOARD2NUMBER2+RELAY5+OFF
+
+these strings will directly trigger the relay labels for each individually with its respective status at the given time. selecting another board number with the same command will get the relay status of another board with another number, example:
+
+like this = BOARD3NUMBER3RELAY8ON
+or
+like this = BOARD4NUMBER4RELAY3OFF
+
+formula = board number + relay number + on/off
+
+all pauses in the sending and receiving strings are removed in order to avoid errors in the transmission/reception of information between the program and the boards, both over short and long distances, bearing in mind that communication can move by cable or by radio modules at different frequencies.
+
+the strings printed in the receiving form/window are also different from the ones you send. this is done for better readability of the information received and passed to the program.
+
+the program also supports the so-called communication echo. it is a way to achieve fairly correct and easily verifiable communication. the principle is simple, the command transmitted by the program to the board is returned immediately as an echo, even before it has been processed by the software in the board. this principle is easy to detect errors /debugging/ of the received and transmitted information from and to the board/program.
+
+if same command is RECIVED in program will be checked for relay status in value of board selector. this means when you send a command to board, if the command is executes correctly, board need to send bak same command to say to program to turn on/off label for relay status.
+
+that is good practice about this, the operator need to know true answer about relay status in real.
+
+in this case software inside of pcb need to do this simple way of executing commands inside :
+
+1. receive string command
+2. check if command is valid in list of all command stored inside of board. if is not send back string >> wrong command.
+3. if command is valid, execute it. BOARD1NUMBER1RELAY1ON;
+4. read back status of pin of relay 1 if is true
+5. if status of pin for realy 1 is true, send back string BOARD1NUMBER1RELAY1ON;
+6. label of relay 1 status in windows program light in green color and show text ON
+
+
+next chapter.
+

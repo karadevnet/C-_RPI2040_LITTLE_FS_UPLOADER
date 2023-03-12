@@ -1,0 +1,131 @@
+﻿SEND STRINGS FROM RELAY BUTTONS IN STRONG TERMINAL
+
+board selector drop down menu combobox keep string fro board numbers of all 4/four/ boards. when some of relay buttons is presed, string from combobox selector is applyed infront of send string. this is need to know with wich one board you send string for execute some command.
+
+BOARD SELECTOR - index 0 = MAINBOARD, index 1 = BOARD1NUMBER1, index 2 = BOARD2NUMBER2, index 3 = BOARD3NUMBER3, index 4 = BOARD4NUMBER4
+
+if is selected MAINBOARD will be applyed = MAINBOARD
+if is selected BOARD 1 N 1 will be applyed = BOARD1NUMBER1
+if is selected BOARD 2 N 2 will be applyed = BOARD2NUMBER2
+if is selected BOARD 3 N 3 will be applyed = BOARD3NUMBER3
+if is selected BOARD 4 N 4 will be applyed = BOARD4NUMBER4
+
+BUTTON GET STATUS - send BOARD1NUMBER1GETSTATUS. this is need to send first, because program need to know what is status of all relays in board. remember that in all serial RS232/485 network, you may have 4 pcb boards with 8/eight/ relays each one. this make 32 relays devided in four pcb boards. selecting pcb board number board selector, will receive status of current using pcb board.
+
+if selected from board selector MAINBOARD all commands will be sended to MAINBOARD PCB
+
+BUTTON RELAY 1 - send string BOARD1NUMBER1RELAY1ON
+BUTTON RELAY 2 - send string BOARD1NUMBER1RELAY2ON
+BUTTON RELAY 3 - send string BOARD1NUMBER1RELAY3ON
+BUTTON RELAY 4 - send string BOARD1NUMBER1RELAY4ON
+BUTTON RELAY 5 - send string BOARD1NUMBER1RELAY5ON
+BUTTON RELAY 6 - send string BOARD1NUMBER1RELAY6ON
+BUTTON RELAY 7 - send string BOARD1NUMBER1RELAY7ON
+BUTTON RELAY 8 - send string BOARD1NUMBER1RELAY8ON
+
+BUTTON RLY_ALL_ON - send BOARD1NUMBER1RELAYALLON - send string to all relay ON. this is indipendent from get status and if send it directly from program start, all relays will be ON and label status of relays will wait for answer to show status of all relays are ON.
+
+BUTTON RLY_ALL_OFF - send BOARD1NUMBER1RELAYALLOFF - send string to all relay OFF. this is indipendent from get status and if send it directly from program start, all relays will be OFF and label status of relays will wait for answer to show status of all relays are OFF.
+
+LABEL RELAYS 1-8 - labels need answer string from current board number to show what is status of each relays in board number. received string need to be like this :
+
+label 1 - BOARD1NUMBER1RELAY1ON - status relay 1 in board is ON
+label 2 - BOARD1NUMBER1RELAY2ON - status relay 2 in board is ON
+label 3 - BOARD1NUMBER1RELAY3ON - status relay 3 in board is ON
+label 4 - BOARD1NUMBER1RELAY4ON - status relay 4 in board is ON
+label 5 - BOARD1NUMBER1RELAY5ON - status relay 5 in board is ON
+label 6 - BOARD1NUMBER1RELAY6ON - status relay 6 in board is ON
+label 7 - BOARD1NUMBER1RELAY7ON - status relay 7 in board is ON
+label 8 - BOARD1NUMBER1RELAY8ON - status relay 8 in board is ON
+
+if relays are OFF received string must be like this :
+
+label 1 - BOARD1NUMBER1RELAY1OFF - status relay 1 in board is OFF
+label 2 - BOARD1NUMBER1RELAY2OFF - status relay 2 in board is OFF
+label 3 - BOARD1NUMBER1RELAY3OFF - status relay 3 in board is OFF
+label 4 - BOARD1NUMBER1RELAY4OFF - status relay 4 in board is OFF
+label 5 - BOARD1NUMBER1RELAY5OFF - status relay 5 in board is OFF
+label 6 - BOARD1NUMBER1RELAY6OFF - status relay 6 in board is OFF
+label 7 - BOARD1NUMBER1RELAY7OFF - status relay 7 in board is OFF
+label 8 - BOARD1NUMBER1RELAY8OFF - status relay 8 in board is OFF
+
+mixed result of relay status can be showed for any of 4/four/ board in any time in working progress.
+
+BUTTON SEND DATA - with this one can be send any kind of string to any of your board. format of string to send need to be formated in like next example :
+
+board number + command = BOARD1NUMBER1RELAY1ON = BOARD1NUMBER1 RELAY1 ON
+board number + command = BOARD2NUMBER2RELAY5OFF = BOARD2NUMBER2 RELAY5 OFF
+board number + command = BOARD1NUMBER1GETSTATUS = BOARD1NUMBER1 GET STATUS
+
+and so on. if you have some other strings writed in embedded software in your hardware pcb board, from input line and SEND_DATA button you can send it directly to board trough RS232/485 serial line.
+
+all pauses in the sending and receiving strings are removed in order to avoid errors in the transmission/reception of information between the program and the boards, both over short and long distances, bearing in mind that communication can move by cable or by radio modules at different frequencies.
+
+the strings printed in the receiving form/window are also different from the ones you send. this is done for better readability of the information received and passed to the program.
+
+the program also supports the so-called communication echo. it is a way to achieve fairly correct and easily verifiable communication. the principle is simple, the command transmitted by the program to the board is returned immediately as an echo, even before it has been processed by the software in the board. this principle is easy to detect errors /debugging/ of the received and transmitted information from and to the board/program.
+
+
+LIST ALL COMMANDS THAT CAN BE SELECTED AND SENDED TROUGH SERIAL PORT TO BOARDS
+
+MAINBOARDGETSTATUS1OUT
+MAINBOARDGETSTATUS2OUT
+MAINBOARDGETSTATUS3OUT
+MAINBOARDGETSTATUS4OUT
+MAINBOARDGETSTATUS5OUT
+MAINBOARDGETSTATUS6OUT
+MAINBOARDGETSTATUS7OUT
+MAINBOARDGETSTATUS8OUT
+MAINBOARDGETRELAYSTATUS
+MAINBOARDRELAYALLON
+MAINBOARDRELAYALLOFF
+
+BOARD1NUMBER1GETSTATUS1OUT
+BOARD1NUMBER1GETSTATUS2OUT
+BOARD1NUMBER1GETSTATUS3OUT
+BOARD1NUMBER1GETSTATUS4OUT
+BOARD1NUMBER1GETSTATUS5OUT
+BOARD1NUMBER1GETSTATUS6OUT
+BOARD1NUMBER1GETSTATUS7OUT
+BOARD1NUMBER1GETSTATUS8OUT
+BOARD1NUMBER1GETRELAYSTATUS
+BOARD1NUMBER1RELAYALLON
+BOARD1NUMBER1RELAYALLOFF
+
+BOARD2NUMBER2GETSTATUS1OUT
+BOARD2NUMBER2GETSTATUS2OUT
+BOARD2NUMBER2GETSTATUS3OUT
+BOARD2NUMBER2GETSTATUS4OUT
+BOARD2NUMBER2GETSTATUS5OUT
+BOARD2NUMBER2GETSTATUS6OUT
+BOARD2NUMBER2GETSTATUS7OUT
+BOARD2NUMBER2GETSTATUS8OUT
+BOARD2NUMBER2GETRELAYSTATUS
+BOARD2NUMBER2RELAYALLON
+BOARD2NUMBER2RELAYALLOFF
+
+BOARD3NUMBER3GETSTATUS1OUT
+BOARD3NUMBER3GETSTATUS2OUT
+BOARD3NUMBER3GETSTATUS3OUT
+BOARD3NUMBER3GETSTATUS4OUT
+BOARD3NUMBER3GETSTATUS5OUT
+BOARD3NUMBER3GETSTATUS6OUT
+BOARD3NUMBER3GETSTATUS7OUT
+BOARD3NUMBER3GETSTATUS8OUT
+BOARD3NUMBER3GETRELAYSTATUS
+BOARD3NUMBER3RELAYALLON
+BOARD3NUMBER3RELAYALLOFF
+
+
+BOARD4NUMBER4GETSTATUS1OUT
+BOARD4NUMBER4GETSTATUS2OUT
+BOARD4NUMBER4GETSTATUS3OUT
+BOARD4NUMBER4GETSTATUS4OUT
+BOARD4NUMBER4GETSTATUS5OUT
+BOARD4NUMBER4GETSTATUS6OUT
+BOARD4NUMBER4GETSTATUS7OUT
+BOARD4NUMBER4GETSTATUS8OUT
+BOARD4NUMBER4GETRELAYSTATUS
+BOARD4NUMBER4RELAYALLON
+BOARD4NUMBER4RELAYALLOFF
+
