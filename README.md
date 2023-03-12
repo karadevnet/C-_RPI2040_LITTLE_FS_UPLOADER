@@ -5,4 +5,3 @@ https://github.com/earlephilhower/arduino-pico
 source code of windows serial terminal is here also code of ino example for raspberry pi pico. if have some one who cam make this work will be great :)
 
 <img src="/JPG_LITTLE_FS_UPLOADER/fs_manager.jpg" alt="Alt text" title="Optional title">
-![Screenshot](/fs_manager.jpg)
