@@ -1,4 +1,4 @@
-# C-_RPI2040_LITTLE_FS_UPLOADER
+# C-_RPI2040_LITTLE_FS_UPLOADER NEW VERSION !!!!! WORKED !!!!
 C# RPI2040 LITTLE FS MENAGER for windows 10+
 simple project start for pico file manager for little fs file system usign earlephilhower / arduino-pico core and board with code in other folders.
 https://github.com/earlephilhower/arduino-pico
