@@ -1,0 +1,80 @@
+﻿DESCRIPTION of a terminal program for exchanging data through an RS232 serial port
+name : STRONG TERMINAL
+operating system: windows 7, 8, 10+
+programming language : C#
+development environment : VS STUDIO 2022
+
+description of the purpose of the program: this program is a serial terminal for exchanging data through a standard serial port on any computer/laptop that has a hardware serial port and/or via a usb converter to a standard serial port you can also use to communicate with any hardware supporting hardware serial interface.
+
+all types of hardware development boards and systems have at least one standard serial port with which you can exchange information between the board and Windows through the serial terminal. the program has command buttons that send plain text strings, and the receiving window shows all received strings from the hardware to which you sent a string and previously connected the USB serial converter or a direct cable for serial RS232 communication.
+
+the program recognizes the standard RS232 serial ports on all computer systems/laptops that have Windows installed, and also checks if any of the found serial ports are already connected to another or the same terminal program. you can run the program as many ports as you have, and you can attach one serial port to each running program for data exchange between the programs themselves.
+
+this is done when virtual serial ports are needed. sometimes in electronics, programming and hardware/software practice you need to work with virtual serial ports, for which there are specialized programs to create and control them. in the presence of such virtual serial ports, the program will display them in the list and check which ports are already connected to other serial terminal programs.
+
+the buttons made in the program clearly show what functions are performed after you start the program.
+
+description of buttons and functions:
+
+GET_PORT : this button will find all available hardware serial ports in the computer/laptop you are using.
+
+CONNECT : this button will try to connect to the port you selected from the SELECTOR, first checking if the port you selected is free or already occupied by another similar or the same running program.
+
+CLOSE : this button will disconnect the port you were connected to if for some reason you need to disconnect from this program and this port.
+
+RELAY_1 <> RELAY_8 : these buttons will be active when you have fulfilled several preconditions. 1. you are connected to a free serial port, 2. you have pressed the GET_STATUS or RLY_ALL_ON or RLY_ALL_OFF button.
+
+since the program is intended to control relay systems, there is a label in front of each of the relay buttons that shows X, or it is a neutral state until you press one of the three buttons mentioned above. the program immediately after starting does not yet know what the state of the relays is and has no way to determine the state of the labels.
+
+for this, after pressing one of the three buttons, the label combination will be loaded, and the relay buttons will be activated.
+
+after enabling the relay buttons, you will be able to change the state of each relay in your hardware as on/off, which will affect the ON/OFF text labels and green/red text background.
+
+if you press one of these three buttons before you have connected to the serial port, you will receive an error message from windows, giving you the option to continue running the program or abort/close it for use.
+
+CLEAR_MEMO : this button will clear the contents of the receiving window of the currently received and displayed information.
+
+SEND_DATA : this button has a function to send a string that is entered by a user directly as text in the text field of the same line. when you enter your string to send to the hardware through the standard hardware serial port, when the button is pressed, the string you entered will be read by the program and sent over the communication line.
+
+ATTENTION!!!! communication modules, hardware and software, distinguish between lowercase and uppercase letters entered, as well as all characters on the keyboard. if you want to have proper communication with your hardware over the com port, the opposite hardware must be entered exactly the same comparison strings as the incoming ones.
+
+A single character, comma, pause, or other lowercase and/or uppercase inaccuracy will not be recognized as correct and the hardware will not execute your command.
+
+you can control this exchange of information by sending from the hardware back to the program what command/string was received. this is called communication echo in electronics and programming. let's take an example:
+
+1. after you have connected, for example, to COM4 through the program, you send the string STATUS_RELAY_1 from the input field to a given board.
+
+2. yours board connected with a cable to the usb converter to the serial port received the command correctly, but in the check for comparison between the static command and the one you sent, STATUs_RELAY_1 is written.
+
+3. note the small letter s that is given for comparison in the receiving function in the board. this will cause the check to be FALSE and the command will not be executed. the other common error is when the sent command does not match the static one written in the check in the receiving function in the board. in any case you make an error in the strings, the hardware and software check will take the comparison as FALSE and the command you sent will not be executed.
+
+to fix and avoid these problems, you can do a communication echo by immediately after receiving the string, sending back the same string to see EXACTLY WHAT WAS RECEIVED from the serial port. this is a good practice and this program implements this action, both in the state of the labels red/green <> OFF/ON, and in the receiving window where all accepted strings/commands are displayed without exception.
+
+some graphics for the new BOARD SELECTOR function, extremely important for communication when using a large number of hardware platforms through a serial port. standard RS232, can be connected both on a common cable all RX with one main transmitter TX, and through the lora radio modules that I use at the moment because they also connect to the pico via a serial port.
+
+very well received. the program can be used for any hardware configuration as long as you follow the standards of connecting more than one serial port to a common receive channel with a single master transmitter. for RS485, everything is clear there, no problems.
+
+later I will make a help page in the program itself with a description of all the strings that are used when receiving <> transmitting the commands and when printing in the receiving window, as well as how to change the state of the relay labels when they are on and when they are off. there's a command for everything :)
+
+all the communication techniques over the standard RS-232, RS-485 serial ports will be explained in the next versions of this program or you can search the internet for your hardware platform how to communicate text messages /strings/ with windows terminal programs.
+
+
+new file manipulation buttons have been added, with which you will be able to process files directly in text format and send them to your boards.
+
+button OPEN FILE - with this button you can select and open the contents of the text file in the program to see what commands are in it and edit them if necessary.
+
+button SAVE FILE AS - with this button you can save the finished file with the commands with some other name that does not repeat itself in the directory of the project you are working with.
+
+SAVE button - with this button you can save an already open file after making the necessary changes to it.
+
+ATTENTION!!!! IF YOU USE THE CLEAR MEMO BUTTON CONTENT SHOWN IN THE WINDOW, THE CONTENT WILL DISAPPEAR FROM THE MEMO WINDOW ONLY !!!! HOWEVER, IF YOU PRESS THE SAVE TO FILE BUTTON AFTER THAT, THE EMPTY CONTENTS WILL BE WRITTEN TO YOUR FILE WHICH WILL DESTROY YOUR WORK !!!! ATTENTION !!!
+
+button SEND FILE - with the button you can send the entire content of the file to your board, but you must be aware that there must be software inside the board to receive and process this content. which means that if you haven't done this software beforehand, it will most likely get a data transfer error and jam the serial port, and it may also jam your board.
+
+these buttons for working with content files have been added to work with processor systems that have the ability to support processing of small file systems.
+
+for systems that do not support working with files and directories, there is another variant of processing the transmitted / received information to achieve the same effect with the execution of commands, statuses, receiving / transmitting data and many other applications in automation.
+
+if your board uses a processor system that cannot support a file system, you can use eeprom memory to read and write and store your data before it is sent to the windows program.
+
+similarly, data in bytes /8 bit data/ can be received on the board and stored before being processed by the processing system.
