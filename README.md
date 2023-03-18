@@ -19,3 +19,6 @@ i am will be so glad if someone can this works fine like a file manager for pico
 best regards to all that will try to this task.
 
 [<img src="/JPG_LITTLE_FS_UPLOADER/NEW_fs_manager.jpg" alt="Alt text" title="Optional title">]
+
+
+[<img src="/JPG_LITTLE_FS_UPLOADER/pico2coretransferdata_boardsss.jpg" alt="Alt text" title="Optional title">]
