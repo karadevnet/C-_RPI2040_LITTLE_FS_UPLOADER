@@ -18,6 +18,8 @@ in source code for board you can find a command that pico will recognize trough 
 i am will be so glad if someone can this works fine like a file manager for pico for size of FS system 128 kB for exmample or for more. :)
 best regards to all that will try to this task.
 
+<img src="/JPG_LITTLE_FS_UPLOADER/arduino_ide_settings_fs.jpg" alt="Alt text" title="Optional title">
+
 <img src="/JPG_LITTLE_FS_UPLOADER/NEW_fs_manager.jpg" alt="Alt text" title="Optional title">
 
 
